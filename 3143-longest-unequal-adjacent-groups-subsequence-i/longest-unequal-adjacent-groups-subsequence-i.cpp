@@ -22,12 +22,8 @@ public:
         }  
 
         vector<string> result;
-        if(subseq[0].size() > subseq[1].size()) {
-            for(int i : subseq[0]) result.push_back(words[i]);
-        }
-        else {
-            for(int i : subseq[1]) result.push_back(words[i]);
-        }
+        for(int i : (subseq[0].size() > subseq[1].size() ? subseq[0] : subseq[1])) 
+            result.push_back(words[i]);
         return result;
     }
 };
