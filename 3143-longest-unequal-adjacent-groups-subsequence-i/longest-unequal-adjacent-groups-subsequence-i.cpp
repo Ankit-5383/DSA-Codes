@@ -1,25 +1,21 @@
 class Solution {
-    size_t n;
-
-    vector<string> getAlternatingGroupBasedSubseq(const vector<string>& words, const vector<int>& groups, int prevGroup) {
-        vector<string> subseq;
-
-        for(size_t i = 0; i < n; ++i) {
-            if(groups[i] != prevGroup) {
-                subseq.push_back(words[i]);
-                prevGroup = groups[i];
-            }
-        }
-
-        return subseq;
-    }
-
 public:
     vector<string> getLongestSubsequence(vector<string>& words, vector<int>& groups) {
-        n = words.size();
+        size_t n = words.size();
+        size_t prevGroup0 = 0, prevGroup1 = 1;
+        
+        vector<string> subseq1, subseq2;
 
-        vector<string> subseq1 = getAlternatingGroupBasedSubseq(words, groups, 0);
-        vector<string> subseq2 = getAlternatingGroupBasedSubseq(words, groups, 1);
+        for(size_t i = 0; i < n; ++i) {
+            if(groups[i] != prevGroup0) {
+                subseq1.push_back(words[i]);
+                prevGroup0 = groups[i];
+            }
+            if(groups[i] != prevGroup1) {
+                subseq2.push_back(words[i]);
+                prevGroup1 = groups[i];
+            }
+        }
 
         return (subseq1.size() > subseq2.size()) ? subseq1 : subseq2;
     }
