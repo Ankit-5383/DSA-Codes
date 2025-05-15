@@ -1,10 +1,10 @@
 class Solution {
-    int n;
+    size_t n;
 
     vector<string> getAlternatingGroupBasedSubseq(const vector<string>& words, const vector<int>& groups, int prevGroup) {
         vector<string> subseq;
 
-        for(int i = 0; i < n; ++i) {
+        for(size_t i = 0; i < n; ++i) {
             if(groups[i] != prevGroup) {
                 subseq.push_back(words[i]);
                 prevGroup = groups[i];
