@@ -5,10 +5,10 @@ class Solution {
 
         while(j < nums.size()) {
             if(!targetFound) {
-                if(j < nums.size() && nums[j] != target) {
+                while(j < nums.size() && nums[j] != target) {
                     j++;
                 }
-                if(j < nums.size() && nums[j] == target) targetFound = true;
+                targetFound = true;
             }
             else {
                 if(nums[j] == target) {
