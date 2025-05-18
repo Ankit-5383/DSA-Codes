@@ -1,15 +1,22 @@
 class Solution {
     void moveTargetToRightPlace(vector<int>& nums, int target, int& i) {
+        bool targetFound = false;
         int j = 0;
-        while(j < nums.size() && nums[j] != target)
-            j++;
 
         while(j < nums.size()) {
-            if(nums[j] == target) {
-                swap(nums[i], nums[j]);
-                i++;
+            if(!targetFound) {
+                while(j < nums.size() && nums[j] != target) {
+                    j++;
+                }
+                targetFound = true;
             }
-            j++;
+            else {
+                if(nums[j] == target) {
+                    swap(nums[i], nums[j]);
+                    i++;
+                }
+                j++;
+            }
         }
     }
 
