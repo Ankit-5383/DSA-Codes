@@ -1,13 +1,11 @@
 class Solution {
 public:
     int findNumbers(vector<int>& nums) {
-        int count=0;
-        for(int val : nums){
-           string num=to_string(val);
-           if( num.size()%2==0){
-            count++;
-           }
+        int rescount=0;
+        for(int val: nums){
+            int count=log10(val)+1;  
+            if(count%2==0) rescount++;      
         }
-        return count;
+        return rescount;
     }
 };
