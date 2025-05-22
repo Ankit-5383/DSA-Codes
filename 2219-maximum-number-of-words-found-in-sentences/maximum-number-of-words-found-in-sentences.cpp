@@ -10,8 +10,8 @@ public:
         int maxWords = 0;
 
         for(const auto& sen : sentences) {
-            int spaceCount = getSpaceCount(sen);
-            maxWords = max(maxWords, spaceCount);
+            int spaceInSen = getSpaceCount(sen);
+            maxWords = max(maxWords, spaceInSen);
         }
 
         return maxWords + 1;
