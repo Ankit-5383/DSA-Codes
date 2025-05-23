@@ -7,7 +7,7 @@ public:
         for(int i=1;i<arr.size();i++){
             buy=min(arr[i],buy);
             int val=arr[i]-buy;
-              profit = max(profit, val);  
+            profit = max(profit, val);  
         }
         return profit;
     }
