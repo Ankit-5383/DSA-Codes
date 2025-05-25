@@ -9,13 +9,13 @@ public:
             if(nums[i]==0 && nums[j]!=0){
                 swap(nums[i],nums[j]);
                 i++;
-                j++;
+                // j++;
             }else if(nums[i]==0 && nums[j]==0){
-                j++;
+                // j++;
             }else{
                 i++;
-                j++;
             }
+                j++;
         }     
     }
 };
