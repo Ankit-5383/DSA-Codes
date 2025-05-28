@@ -1,15 +1,15 @@
 class Solution {
 public:
     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        int n = nums1.size(), m = nums2.size();
+        vector<int> isPresent(1001);
+        for(int num2 : nums2)
+            isPresent[num2] = 1;
 
-        vector<int> commons, visited(1001);
-
-        for(int num1 : nums1)
-            for(int num2 : nums2)
-                if(!visited[num1] && num1 == num2)
-                    commons.push_back(num1),
-                    visited[num1] = 1;
+        vector<int> commons;
+        for(int num : nums1)
+            if(isPresent[num])
+                commons.push_back(num),
+                isPresent[num] = 0;
 
         return commons;
     }
