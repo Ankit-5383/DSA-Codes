@@ -7,16 +7,15 @@ public:
         int res = -1;
         for (int i : nums) {
             if (i < 0) {
-                int a=abs(i);
                 int s = 0;
                 int e= nums.size() - 1;
                 while (s <= e) {
                     int mid = s + (e - s) / 2;
-                    if (nums[mid] == a) {
-                        res = max(res, a);
+                    if (nums[mid] == abs(i)) {
+                        res = max(res,nums[mid]);
                         break;
                     }
-                    else if(nums[mid]>a){
+                    else if(nums[mid]>abs(i)){
                         e=mid-1;
                     }
                     else{
