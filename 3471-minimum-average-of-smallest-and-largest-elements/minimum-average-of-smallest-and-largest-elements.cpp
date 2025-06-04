@@ -1,8 +1,7 @@
 class Solution {
 public:
     double minimumAverage(vector<int>& nums) {
-        
-        double res=INT_MAX;
+        double res=DBL_MAX;
         sort(nums.begin(),nums.end());
         int i=0;
         int j=nums.size()-1;
@@ -14,7 +13,6 @@ public:
              i++;
              j--;
         }
-
         return res;
     }
 };
