@@ -6,18 +6,16 @@ public:
             string res; 
             res.push_back(s[i]);
 
-            // Create a set to track characters in the current substring
-            unordered_set<char> seen;
-            seen.insert(s[i]);
-
-            sz = max(sz, (int)res.size());
+            // Check if character is repeated
+            if (res.find(s[i]) == 0) {
+                sz = max(sz, (int)res.size());
+            }
 
             for (int j = i + 1; j < s.size(); j++) { 
-                // If character is already seen, break
-                if (seen.count(s[j])) break;
+                // Check if s[j] already exists in res
+                if (res.find(s[j]) != string::npos) break;
 
                 res.push_back(s[j]);
-                seen.insert(s[j]);
 
                 sz = max(sz, (int)res.size());
             }
