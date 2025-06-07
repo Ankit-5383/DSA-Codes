@@ -17,8 +17,8 @@ public:
                 st=i+1;
             }
         }
-        int n=s.size()-1;
-        rev(s,st,n);
+        
+        rev(s,st,s.size()-1);
 
         return s;
     }
