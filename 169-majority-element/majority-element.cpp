@@ -1,17 +1,19 @@
+#include <unordered_map>
+#include <vector>
+
 class Solution {
 public:
-    int majorityElement(vector<int>& nums) {
-        int candidate = nums[0], count = 1;
-
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums[i] == candidate) count++;
-            else count--;
-
-            if (count == 0) {
-                candidate = nums[i];
-                count = 1;
+    int majorityElement(std::vector<int>& nums) {
+        std::unordered_map<int, int> freqMap;
+        int n = nums.size();
+        
+        for (int num : nums) {
+            freqMap[num]++;
+            if (freqMap[num] > n / 2) {
+                return num;  
             }
         }
-        return candidate;
+        
+        return -1; // Should never reach here as per problem constraints
     }
 };
