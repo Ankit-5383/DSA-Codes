@@ -10,12 +10,17 @@ public:
             if (nums[j] == 0) {
                 count++;
             }
-            while (count > k) {
-                if (nums[i] == 0) {
-                    count--;
+
+            if (count > k) {
+                for (; i < nums.size(); i++) {
+                    if (nums[i] == 0) {
+                        count--;
+                        i++;
+                        break;
+                    }
                 }
-                i++;
             }
+
             res = max(res, j - i + 1);
             j++;
         }
