@@ -1,46 +1,30 @@
 class Solution {
 public:
-    string addBinary(string a, string b) {
-        int i = a.size() - 1;
-        int j = b.size() - 1;
+    string addBinary(string num1, string num2) {
+        int n = num1.size();
+        int m = num2.size();
+        int i = n-1, j = m-1;
+        int carry = 0;
 
-        string res = "";
+        string result;
 
-        bool carry = false;  // You had `true` initially — that's incorrect
+        while(i >= 0 || j >= 0 || carry) {
+            int bit1 = (i >= 0) ? num1[i] - '0' : 0;
+            int bit2 = (j >= 0) ? num2[j] - '0' : 0;
+            int sum = bit1 + bit2 + carry;
+            i--, j--;
 
-        while (i >= 0 || j >= 0 || carry) {
-            char ch1 = (i >= 0) ? a[i] : '0';
-            char ch2 = (j >= 0) ? b[j] : '0';
+            if(sum == 3) 
+                sum = 1, carry = 1;
+            else if(sum == 2) 
+                sum = 0, carry = 1;
+            else if(carry == 1)
+                carry = 0;
 
-            if (ch1 == '1' && ch2 == '1') {
-                if (carry) {
-                    res += '1';
-                } else {
-                    res += '0';
-                    carry = true;
-                }
-            } else if ((ch1 == '1' && ch2 == '0') || (ch1 == '0' && ch2 == '1')) {
-                if (carry) {
-                    res += '0';
-                    carry = true;
-                } else {
-                    res += '1';
-                    carry = false;
-                }
-            } else { // both are '0'
-                if (carry) {
-                    res += '1';
-                    carry = false;
-                } else {
-                    res += '0';
-                }
-            }
-
-            i--;
-            j--;
+            result += to_string(sum);
         }
 
-        reverse(res.begin(), res.end());
-        return res;
+        reverse(begin(result), end(result));
+        return result; 
     }
 };
