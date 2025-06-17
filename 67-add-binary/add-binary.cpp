@@ -1,9 +1,7 @@
 class Solution {
 public:
-    string addBinary(string num1, string num2) {
-        int n = num1.size();
-        int m = num2.size();
-        int i = n-1, j = m-1;
+    string addBinary(const string& num1, const string& num2) {
+        int i = num1.size() - 1, j = num2.size() - 1;
         int carry = 0;
 
         string result;
@@ -14,12 +12,9 @@ public:
             int sum = bit1 + bit2 + carry;
             i--, j--;
 
-            if(sum == 3) 
-                sum = 1, carry = 1;
-            else if(sum == 2) 
-                sum = 0, carry = 1;
-            else if(carry == 1)
-                carry = 0;
+            carry = 0;
+            if(sum == 3) sum = 1, carry = 1;
+            else if(sum == 2) sum = 0, carry = 1;
 
             result += to_string(sum);
         }
