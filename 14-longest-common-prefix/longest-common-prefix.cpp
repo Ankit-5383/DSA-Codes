@@ -1,5 +1,5 @@
 class Solution {
-    int findTheIndex(vector<string> arr) {
+    int findTheIndex(vector<string>&arr) {
         int min = INT_MAX;
         int index = 0;
         for (int i = 0; i < arr.size(); i++) {
@@ -14,7 +14,6 @@ class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
         int sz = strs.size();
-        if (sz == 0) return "";  
         int index = findTheIndex(strs);
         string word = strs[index];
 
