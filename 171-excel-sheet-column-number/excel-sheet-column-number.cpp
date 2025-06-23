@@ -6,9 +6,15 @@ public:
         if(n==1){
             return s[0]-'A'+1;
         }
-        for(int i=0;i<n;i++){
-            int d = s[i] - 'A' + 1;
-            res = res * 26 + d;
+        for(int i=n-1;i>=0;i--){
+            int val = s[i]-'A'+1;
+            if(res == 0) {
+            res += val;
+            }
+            else 
+            res += val * pow(26, n-1-i);
+
+
         }
         return res;
     }
