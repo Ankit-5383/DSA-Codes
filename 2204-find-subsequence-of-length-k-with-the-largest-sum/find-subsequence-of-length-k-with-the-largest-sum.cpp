@@ -3,8 +3,6 @@ public:
     vector<int> maxSubsequence(vector<int>& nums, int k) {
         int n = nums.size();
         vector<pair<int, int>> valIdx;
-
-        // Step 1: Pair each value with its original index
         for (int i = 0; i < n; ++i) {
             valIdx.emplace_back(nums[i], i);
         }
